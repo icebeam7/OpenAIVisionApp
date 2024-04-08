@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OpenAIVisionApp.Views.ImageVideoPromptsView"
+             xmlns:vm="clr-namespace:OpenAIVisionApp.ViewModels"
+             x:DataType="vm:ImageVideoPromptsViewModel"
+             Title="Image Video Prompts View">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,*,Auto"
+          ColumnDefinitions="Auto,*"
+          ColumnSpacing="5" 
+          RowSpacing="5" 
+          Margin="5">
+
+        <Label Grid.Row="0" 
+               Grid.Column="0"
+               Text="Message:"
+               VerticalOptions="Center"/>
+
+        <Entry Grid.Row="0" 
+               Grid.Column="1"
+               Text="{Binding Message}"
+               HorizontalOptions="Start"
+               WidthRequest="300"/>
+
+        <Button Grid.Row="1" 
+                Grid.Column="0"
+                Text="Add Image"
+                WidthRequest="150"
+                HorizontalOptions="End"
+                Command="{Binding ChoosePictureCommand}"/>
+
+        <Button Grid.Row="1" 
+                Grid.Column="1"
+                Text="Add Video"
+                WidthRequest="150"
+                HorizontalOptions="Start"
+                Command="{Binding ChooseVideoCommand}"/>
+
+        <CheckBox Grid.Row="2" 
+                  Grid.Column="0"
+                  HorizontalOptions="End"
+                  IsChecked="{Binding IsEnhanced}" />
+        
+        <Label Grid.Row="2" 
+               Grid.Column="1"
+               Text="Is Enhanced?"
+               HorizontalOptions="Start"
+               VerticalOptions="Center"/>
+
+        <Button Grid.Row="3" 
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Text="Send Message"
+                WidthRequest="200"
+                HorizontalOptions="Start"
+                Command="{Binding SendPromptCommand}"/>
+
+        <Label Grid.Row="4" 
+               Grid.Column="0"
+               Text="Answer: "/>
+
+        <Editor Grid.Row="4" 
+                Grid.Column="1"
+                Text="{Binding Answer}"
+                HorizontalOptions="Start"
+                WidthRequest="300"
+                HeightRequest="300"/>
+
+        <Button Grid.Row="5" 
+                Grid.Column="0"
+                Text="Create Video Index"
+                HorizontalOptions="End"
+                WidthRequest="200"
+                Command="{Binding CreateVideoIndexCommand}"/>
+
+        <Button Grid.Row="5" 
+                Grid.Column="1"
+                Text="Ingest Video"
+                WidthRequest="200"
+                HorizontalOptions="Start"
+                Command="{Binding IngestVideoCommand}"/>
+    </Grid>
+</ContentPage>

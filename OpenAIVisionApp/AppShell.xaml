@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="OpenAIVisionApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:OpenAIVisionApp"
+    xmlns:views="clr-namespace:OpenAIVisionApp.Views"
+    Shell.FlyoutBehavior="Flyout"
+    Title="GPT4 Turbo with Vision">
+
+    <ShellContent
+        Title="Image and Video Prompts"
+        ContentTemplate="{DataTemplate views:ImageVideoPromptsView}"
+        Route="ImageVideoPromptsView" />
+</Shell>
